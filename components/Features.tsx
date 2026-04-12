@@ -77,7 +77,7 @@ export default function Features() {
           <p className="text-sm uppercase tracking-[.4em] text-green-600 font-semibold">Why Choose Us</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Exceptional Safari Experiences</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover what makes Priority Wild Safaris the premier choice for African wildlife adventures.
+            Discover what makes Gators Safaris the premier choice for African wildlife adventures.
           </p>
         </div>
 

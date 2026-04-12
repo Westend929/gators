@@ -58,7 +58,7 @@ export default function SafariGallery({ images, title = "Gallery" }: SafariGalle
                 className="group relative overflow-hidden rounded-lg cursor-pointer"
                 onClick={() => openModal(image, index)}
               >
-                <div className="aspect-[4/3] relative">
+                <div className="aspect-4/3 relative">
                   <Image
                     src={image.src}
                     alt={image.alt}

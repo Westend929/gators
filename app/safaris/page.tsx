@@ -253,7 +253,7 @@ export default function SafarisPage() {
                     <Eye className="w-4 h-4" />
                   </Button>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button asChild size="sm" className="flex-1 bg-white/90 text-gray-800 hover:bg-white">
                     <Link href={`/safaris/${safari.slug}`}>View Details</Link>
@@ -490,7 +490,7 @@ export default function SafarisPage() {
             </section>
 
             {/* CTA */}
-            <section className="bg-gradient-to-r from-green-600 to-green-700 text-white p-6 rounded-lg text-center">
+            <section className="bg-linear-to-r from-green-600 to-green-700 text-white p-6 rounded-lg text-center">
               <h3 className="text-xl font-bold mb-3">Ready for Your Safari Adventure?</h3>
               <p className="text-gray-100 mb-4 max-w-xl mx-auto">
                 Let our experts help you plan the perfect safari experience.

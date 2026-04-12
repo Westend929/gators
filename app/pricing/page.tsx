@@ -8,19 +8,19 @@ import Link from 'next/link';
 const priceOptions = [
   {
     title: 'Starter Safari',
-    price: '$1,200',
+    price: '',
     description: 'Short luxury safari package ideal for first-time travelers.',
     highlights: ['4 Days', 'Budget Lodging', 'Daily Game Drives', 'Airport Transfer'],
   },
   {
     title: 'Classic Safari',
-    price: '$1,850',
+    price: '',
     description: 'Popular itinerary with premium accommodation and safari activities.',
     highlights: ['6 Days', 'Luxury Lodging', 'Hot Air Balloon Option', 'Cultural Visits'],
   },
   {
     title: 'Premium Safari',
-    price: '$2,850',
+    price: '',
     description: 'Ultimate safari experience with luxury camps and private guides.',
     highlights: ['8 Days', 'Exclusive Camps', 'Private Safari', 'Gourmet Dining'],
   },
@@ -33,7 +33,7 @@ export default function PricingPage() {
         <div className="absolute inset-0 opacity-80">
           <Image
             src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80"
-            alt="AI generated safari pricing hero"
+            alt=""
             fill
             className="object-cover"
           />
