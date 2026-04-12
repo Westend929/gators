@@ -80,11 +80,7 @@ interface PageProps {
 
 export default async function CountryExperiencePage({ params }: PageProps) {
   const { country: countryId } = await params;
-  const country = countries.find(c => c.id === countryId);
-
-  if (!country) {
-    notFound();
-  }
+  const country = countries.find(c => c.id === countryId)!;
 
   return (
     <div>

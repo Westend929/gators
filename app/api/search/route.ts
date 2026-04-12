@@ -74,7 +74,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10');
     const offset = parseInt(searchParams.get('offset') || '0');
 
-    let filteredSafaris = safaris.filter(safari => {
+    const filteredSafaris = safaris.filter(safari => {
       // Text search
       const matchesQuery = !query ||
         safari.title.toLowerCase().includes(query) ||
@@ -97,7 +97,7 @@ export async function GET(request: NextRequest) {
 
     // Sorting
     filteredSafaris.sort((a, b) => {
-      let aValue: any, bValue: any;
+      let aValue: number, bValue: number;
 
       switch (sortBy) {
         case 'price':

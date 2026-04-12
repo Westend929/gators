@@ -121,11 +121,7 @@ interface SafariPageProps {
 
 export default async function SafariDetailPage({ params }: SafariPageProps) {
   const { slug } = await params;
-  const safari = safariDetails.find((item) => item.slug === slug);
-
-  if (!safari) {
-    notFound();
-  }
+  const safari = safariDetails.find((item) => item.slug === slug)!;
 
   const galleryImages = [
     {
