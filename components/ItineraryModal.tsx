@@ -1,7 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'react-hot-toast';
@@ -18,7 +24,11 @@ interface ItineraryModalProps {
   };
 }
 
-export default function ItineraryModal({ isOpen, onClose, itinerary }: ItineraryModalProps) {
+export default function ItineraryModal({
+  isOpen,
+  onClose,
+  itinerary,
+}: ItineraryModalProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +38,7 @@ export default function ItineraryModal({ isOpen, onClose, itinerary }: Itinerary
     numberOfPeople: '1',
     budget: '',
   });
+
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -46,12 +57,20 @@ export default function ItineraryModal({ isOpen, onClose, itinerary }: Itinerary
 
       if (response.ok) {
         toast.success('Itinerary request submitted! We will contact you soon.');
-        setFormData({ name: '', email: '', phone: '', startDate: '', endDate: '', numberOfPeople: '1', budget: '' });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          startDate: '',
+          endDate: '',
+          numberOfPeople: '1',
+          budget: '',
+        });
         onClose();
       } else {
         toast.error('Failed to submit request. Please try again.');
       }
-    } catch (error) {
+    } catch {
       toast.error('An error occurred. Please try again.');
     } finally {
       setLoading(false);
@@ -88,23 +107,31 @@ export default function ItineraryModal({ isOpen, onClose, itinerary }: Itinerary
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Full Name *</label>
+                <label className="block text-sm font-medium mb-1">
+                  Full Name *
+                </label>
                 <Input
                   type="text"
                   required
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Email *</label>
+                <label className="block text-sm font-medium mb-1">
+                  Email *
+                </label>
                 <Input
                   type="email"
                   required
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   placeholder="your@email.com"
                 />
               </div>
@@ -114,46 +141,67 @@ export default function ItineraryModal({ isOpen, onClose, itinerary }: Itinerary
                 <Input
                   type="tel"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   placeholder="+254..."
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-sm font-medium mb-1">Start Date</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Start Date
+                  </label>
                   <Input
                     type="date"
                     value={formData.startDate}
-                    onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, startDate: e.target.value })
+                    }
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">End Date</label>
+                  <label className="block text-sm font-medium mb-1">
+                    End Date
+                  </label>
                   <Input
                     type="date"
                     value={formData.endDate}
-                    onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, endDate: e.target.value })
+                    }
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-sm font-medium mb-1">Number of People</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Number of People
+                  </label>
                   <Input
                     type="number"
                     min="1"
                     value={formData.numberOfPeople}
-                    onChange={(e) => setFormData({ ...formData, numberOfPeople: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        numberOfPeople: e.target.value,
+                      })
+                    }
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Budget (USD)</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Budget (USD)
+                  </label>
                   <Input
                     type="text"
                     value={formData.budget}
-                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, budget: e.target.value })
+                    }
                     placeholder="e.g., 5000"
                   />
                 </div>
