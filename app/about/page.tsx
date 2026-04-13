@@ -20,9 +20,9 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-green-900/60" />
         </div>
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Priority Wild Safaris</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Gators Tours and Safaris</h1>
           <p className="text-lg max-w-2xl mx-auto">
-            Your trusted partner for unforgettable African safari adventures.
+            reating unforgettable African safari journeys you can trust.
           </p>
         </div>
       </section>
@@ -34,10 +34,10 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-4">Our Story</h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Founded in 2015, Priority Wild Safaris has been committed to delivering exceptional safari experiences to wildlife enthusiasts from around the world. With over a decade of experience, we've curated some of Africa's most memorable wildlife encounters.
+                Gators Tours and Safaris delivers exceptional safari experiences for wildlife lovers worldwide. With over a decade of experience, we create unforgettable African adventures guided by expert teams.
               </p>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Our team of expert guides, experienced safari organizers, and hospitality professionals work tirelessly to ensure every safari experience exceeds expectations.
+                We are committed to sustainable tourism that protects wildlife while offering authentic and memorable experiences.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We believe in sustainable tourism that protects Africa's wildlife while providing guests with authentic, transformative experiences.
