@@ -91,7 +91,7 @@ export default function ExperiencePage() {
         <div className="absolute inset-0 opacity-80">
           <Image
             src="/images/samb01.webp"
-            alt="AI generated safari experience"
+            alt="Wildlife safari experience"
             fill
             className="object-cover"
           />

@@ -185,7 +185,7 @@ export default function SafarisPage() {
         <div className="absolute inset-0 opacity-80">
           <Image
             src="/images/serve10.webp"
-            alt="AI generated safari packages hero"
+            alt="Safari packages hero image"
             fill
             className="object-cover"
           />
@@ -203,7 +203,7 @@ export default function SafarisPage() {
               size="lg"
               className="bg-white/10 border-white text-white hover:bg-white hover:text-green-600 transition-all duration-300"
             >
-              About Priority Wild Safaris
+              About Gators Tours and Safaris
             </Button>
             <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
               <Link href="/contact">Plan Your Safari</Link>
@@ -380,7 +380,7 @@ export default function SafarisPage() {
       <Dialog open={isAboutModalOpen} onOpenChange={setIsAboutModalOpen}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center">About Priority Wild Safaris</DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-center">About Gators Tours and Safaris</DialogTitle>
           </DialogHeader>
 
           <div className="space-y-8">
@@ -390,7 +390,7 @@ export default function SafarisPage() {
                 <div>
                   <h3 className="text-xl font-bold mb-3">Our Story</h3>
                   <p className="text-gray-700 mb-3 leading-relaxed">
-                    Founded in 2015, Priority Wild Safaris has been committed to delivering exceptional safari experiences to wildlife enthusiasts from around the world. With over a decade of experience, we've curated some of Africa's most memorable wildlife encounters.
+                    Founded in 2015, Gators Tours and Safaris has been committed to delivering exceptional safari experiences to wildlife enthusiasts from around the world. With over a decade of experience, we've curated some of Africa's most memorable wildlife encounters.
                   </p>
                   <p className="text-gray-700 mb-3 leading-relaxed">
                     Our team of expert guides, experienced safari organizers, and hospitality professionals work tirelessly to ensure every safari experience exceeds expectations.

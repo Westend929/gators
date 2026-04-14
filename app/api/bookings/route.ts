@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { sendEmail } from '@/lib/email';
 
 // In-memory storage for demo purposes - replace with database in production
 let bookings: any[] = [];
@@ -75,37 +76,20 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email
     try {
-      await fetch('https://api.sendgrid.com/v3/mail/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-        },
-        body: JSON.stringify({
-          personalizations: [
-            {
-              to: [{ email: userEmail }],
-              subject: 'Booking Confirmation - Priority Wild Safaris',
-            },
-          ],
-          from: { email: process.env.SENDER_EMAIL },
-          content: [
-            {
-              type: 'text/html',
-              value: `
-                <h2>Booking Confirmation</h2>
-                <p>Thank you for booking with Priority Wild Safaris!</p>
-                <p><strong>Booking ID:</strong> ${booking.id}</p>
-                <p><strong>Safari Package:</strong> ${safariPackage}</p>
-                <p><strong>Dates:</strong> ${new Date(startDate).toLocaleDateString()} - ${new Date(endDate).toLocaleDateString()}</p>
-                <p><strong>Number of People:</strong> ${numberOfPeople}</p>
-                <p><strong>Total Amount:</strong> $${totalAmount}</p>
-                <p><strong>Status:</strong> ${booking.status}</p>
-                <p>We will contact you shortly with payment instructions and additional details.</p>
-              `,
-            },
-          ],
-        }),
+      await sendEmail({
+        to: userEmail,
+        subject: 'Booking Confirmation - Gators Tours and Safaris',
+        html: `
+          <h2>Booking Confirmation</h2>
+          <p>Thank you for booking with Gators Tours and Safaris!</p>
+          <p><strong>Booking ID:</strong> ${booking.id}</p>
+          <p><strong>Safari Package:</strong> ${safariPackage}</p>
+          <p><strong>Dates:</strong> ${new Date(startDate).toLocaleDateString()} - ${new Date(endDate).toLocaleDateString()}</p>
+          <p><strong>Number of People:</strong> ${numberOfPeople}</p>
+          <p><strong>Total Amount:</strong> $${totalAmount}</p>
+          <p><strong>Status:</strong> ${booking.status}</p>
+          <p>We will contact you shortly with payment instructions and additional details.</p>
+        `,
       });
     } catch (emailError) {
       console.error('Confirmation email failed:', emailError);

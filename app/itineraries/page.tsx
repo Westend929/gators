@@ -363,7 +363,7 @@ export default function ItinerariesPage() {
         <div className="absolute inset-0 opacity-80">
           <Image
             src="/images/serengeti.jpg"
-            alt="AI generated itinerary hero"
+            alt="Safari itinerary hero image"
             fill
             className="object-cover"
           />

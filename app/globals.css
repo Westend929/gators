@@ -78,6 +78,21 @@ html {
   background: hsl(var(--muted-foreground));
 }
 
+/* Zendesk Widget Styles */
+#zendesk-widget {
+  z-index: 999999 !important;
+}
+
+.embedded-service-help-button .helpButton .uiButton {
+  z-index: 999999 !important;
+}
+
+/* Ensure Zendesk widget is visible */
+div[id*="zendesk"] {
+  z-index: 999999 !important;
+  position: relative !important;
+}
+
 /* Animation utilities */
 @keyframes fadeIn {
   from {

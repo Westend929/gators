@@ -45,7 +45,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden">
               <Image
-                src="/images/safari-experience.jpg"
+                src="/images/experience.jpg"
                 alt="Safari Experience"
                 fill
                 className="object-cover"
@@ -84,52 +84,55 @@ export default function AboutPage() {
 
         {/* Why Choose Us */}
         <section className="mb-16 bg-gray-50 -mx-4 px-4 py-12">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { icon: '🎯', title: 'Expert Guides', description: 'Certified guides with 10+ years of experience' },
-              { icon: '🏆', title: 'Award-Winning', description: 'Recognized for excellence in safari tourism' },
-              { icon: '🌍', title: 'Sustainable', description: 'Committed to wildlife and environment conservation' },
-              { icon: '🏖️', title: 'Luxury Experience', description: 'Premium lodges and exceptional service' },
-              { icon: '💰', title: 'Best Value', description: 'Competitive pricing without compromising quality' },
-              { icon: '✈️', title: 'All-Inclusive', description: 'Complete packages from flights to accommodations' },
-            ].map((item, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="pt-6">
-                  <div className="text-4xl mb-4">{item.icon}</div>
-                  <h3 className="font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">Why Choose Gators Tours and Safaris</h2>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              Gators Tours and Safaris is your trusted choice for unforgettable Kenya and African safari experiences. We specialize in tailor-made safari packages across top destinations including Maasai Mara, Amboseli, Lake Nakuru, and Serengeti.
+            </p>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              With over a decade of experience, our expert guides ensure safe, professional, and memorable wildlife adventures. We focus on personalized service, comfortable travel, and authentic encounters with Africa’s breathtaking wildlife.
+            </p>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              We are committed to sustainable tourism, supporting wildlife conservation while delivering exceptional safari experiences that exceed expectations.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Choose Gators Tours and Safaris for reliable service, expert guidance, and unforgettable journeys across Africa.
+            </p>
           </div>
         </section>
 
-        {/* Team */}
+        {/* Location */}
         <section>
-          <h2 className="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: 'John Kariuki', role: 'Lead Safari Guide', bio: '15+ years in wildlife tourism' },
-              { name: 'Sarah Omondi', role: 'Tour Manager', bio: 'Expert itinerary planner' },
-              { name: 'David Kipchoge', role: 'Lead Driver', bio: 'Master of African roads' },
-            ].map((member, index) => (
-              <Card key={index} className="text-center">
-                <div className="relative w-full h-48 bg-gray-300 mb-4">
-                  <Image
-                    src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${member.name}`}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardContent>
-                  <h3 className="font-semibold text-lg">{member.name}</h3>
-                  <p className="text-green-600 font-medium text-sm mb-2">{member.role}</p>
-                  <p className="text-gray-600 text-sm">{member.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <h2 className="text-3xl font-bold text-center mb-12">Visit Our Nairobi Office at Agip House</h2>
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-start">
+            <div className="space-y-6">
+              <p className="text-gray-700 leading-relaxed">
+                Our Gators Nairobi office is located at Agip House on Haile Selassie Avenue, in the heart of Nairobi CBD. This location is ideal for safari planning, transfers, and guest meetups.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Use the Google map below to view our Agip House office branch and get directions to the Nairobi CBD location.
+              </p>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  title="Gators Office Branch - Agip House Nairobi"
+                  src="https://www.google.com/maps?q=Agip+House,+Haile+Selassie+Avenue,+Nairobi,+Kenya,+00100+Nairobi+CBD&output=embed"
+                  width="100%"
+                  height="420"
+                  loading="lazy"
+                  className="border-0 w-full h-[420px]"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+            <div className="rounded-3xl overflow-hidden shadow-2xl h-full min-h-[420px] bg-slate-950 text-white p-8 flex flex-col justify-center">
+              <h3 className="text-2xl font-bold mb-4">Agip House, Nairobi CBD</h3>
+              <p className="text-gray-300 mb-4 leading-relaxed">
+                Visit our Gators office at Agip House for safari bookings, local support, and travel coordination in Nairobi CBD.
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                This central location offers easy access to major roads, hotels, and city services before your safari departure.
+              </p>
+            </div>
           </div>
         </section>
 

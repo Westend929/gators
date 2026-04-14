@@ -49,7 +49,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 opacity-70">
           <Image
             src="/images/luxury1.webp"
-            alt="AI generated safari hero"
+            alt="Safari hero image"
             fill
             className="object-cover"
           />

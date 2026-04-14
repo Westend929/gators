@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sign, verify } from 'jsonwebtoken';
+import { sendEmail } from '@/lib/email';
 
 // In-memory storage for demo purposes - replace with database in production
 let users: any[] = [];
@@ -98,32 +99,15 @@ async function handleRegister(email: string, password: string, name: string, con
 
   // Send welcome email
   try {
-    await fetch('https://api.sendgrid.com/v3/mail/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-      },
-      body: JSON.stringify({
-        personalizations: [
-          {
-            to: [{ email }],
-            subject: 'Welcome to Priority Wild Safaris!',
-          },
-        ],
-        from: { email: process.env.SENDER_EMAIL },
-        content: [
-          {
-            type: 'text/html',
-            value: `
-              <h2>Welcome to Priority Wild Safaris!</h2>
-              <p>Dear ${name},</p>
-              <p>Thank you for registering with us. We're excited to help you plan your dream safari adventure!</p>
-              <p>Best regards,<br/>Priority Wild Safaris Team</p>
-            `,
-          },
-        ],
-      }),
+    await sendEmail({
+      to: email,
+      subject: 'Welcome to Gators Tours and Safaris!',
+      html: `
+        <h2>Welcome to Gators Tours and Safaris!</h2>
+        <p>Dear ${name},</p>
+        <p>Thank you for registering with us. We're excited to help you plan your dream safari adventure!</p>
+        <p>Best regards,<br/>Gators Tours and Safaris Team</p>
+      `,
     });
   } catch (emailError) {
     console.error('Welcome email failed:', emailError);

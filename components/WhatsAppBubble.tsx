@@ -16,7 +16,9 @@ export default function WhatsAppBubble({
 
   const handleClick = () => {
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    // Remove any non-numeric characters except the leading + for WhatsApp URL
+    const cleanPhoneNumber = phoneNumber.replace(/[^\d]/g, '');
+    const whatsappURL = `https://wa.me/${cleanPhoneNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
   };
 

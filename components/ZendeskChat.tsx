@@ -27,7 +27,7 @@ export default function ZendeskChat() {
       script.async = true;
 
       script.onload = () => {
-        console.log('Zendesk script loaded');
+        console.log('Zendesk script loaded successfully');
 
         // Update position after load
         if (window.zE) {
@@ -36,10 +36,14 @@ export default function ZendeskChat() {
               position: { horizontal: 'left', vertical: 'bottom' },
             },
           });
+          console.log('Zendesk widget positioned on left side');
         }
       };
 
-      script.onerror = () => console.error('Failed to load Zendesk script');
+      script.onerror = () => {
+        console.error('Failed to load Zendesk script - check your Zendesk key and admin settings');
+        console.error('Zendesk key used:', process.env.NEXT_PUBLIC_ZENDESK_KEY);
+      };
 
       document.head.appendChild(script);
 

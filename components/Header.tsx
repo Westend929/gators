@@ -111,7 +111,7 @@ export default function Header() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/254111919898"
+                href={`https://wa.me/${(process.env.NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER || '+254111919898').replace(/[^\d]/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:scale-125 transition transform text-green-300 hover:text-green-200"

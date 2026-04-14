@@ -2,8 +2,4 @@ User-agent: *
 Disallow: /api/
 Allow: /
 
-Sitemap: https://prioritywildsafaris.com/sitemap.xml
-
-# Googlebot directives
-User-agent: Googlebot
-Allow: /
+Sitemap: https://gatorstoursandsafaris.vercel.app/sitemap.xml

@@ -12,42 +12,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email via your email service (SendGrid, Mailgun, etc.)
-    // This is a placeholder - replace with your actual email service
-    const emailResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-      },
-      body: JSON.stringify({
-        personalizations: [
-          {
-            to: [{ email: process.env.SENDER_EMAIL }],
-            subject: `New Contact Form: ${subject || 'General Inquiry'}`,
-          },
-        ],
-        from: { email: process.env.SENDER_EMAIL },
-        content: [
-          {
-            type: 'text/html',
-            value: `
-              <h2>New Contact Form Submission</h2>
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-              <p><strong>Subject:</strong> ${subject || 'No subject'}</p>
-              <p><strong>Message:</strong></p>
-              <p>${message.replace(/\n/g, '<br>')}</p>
-            `,
-          },
-        ],
-      }),
-    });
+    const { sendEmail } = await import('@/lib/email');
 
-    if (!emailResponse.ok) {
-      console.error('Email send failed:', emailResponse.statusText);
-    }
+    await sendEmail({
+      to: process.env.SENDER_EMAIL!,
+      subject: `New Contact Form: ${subject || 'General Inquiry'}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+        <p><strong>Subject:</strong> ${subject || 'No subject'}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+    });
 
     return NextResponse.json(
       { message: 'Thank you for your message. We will get back to you soon.' },

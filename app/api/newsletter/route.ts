@@ -12,29 +12,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Add to newsletter list via your email service
-    // This is a placeholder - replace with your actual service
-    const response = await fetch('https://api.sendgrid.com/v3/marketing/contacts', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-      },
-      body: JSON.stringify({
-        contacts: [
-          {
-            email: email,
-            custom_fields: {
-              e1_T: 'Newsletter Subscriber',
-            },
-          },
-        ],
-      }),
+    const { sendEmail } = await import('@/lib/email');
+
+    await sendEmail({
+      to: process.env.SENDER_EMAIL!,
+      subject: 'New Newsletter Subscriber',
+      html: `
+        <h2>New Newsletter Subscriber</h2>
+        <p><strong>Email:</strong> ${email}</p>
+      `,
     });
 
-    if (!response.ok) {
-      console.error('Newsletter subscription failed:', response.statusText);
-    }
+    await sendEmail({
+      to: email,
+      subject: 'Newsletter Subscription Confirmed',
+      html: `
+        <h2>Thank you for subscribing!</h2>
+        <p>You have been added to the Gators Tours and Safaris newsletter.</p>
+      `,
+    });
 
     return NextResponse.json(
       { message: 'Successfully subscribed to our newsletter!' },

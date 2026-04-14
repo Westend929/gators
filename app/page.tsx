@@ -97,7 +97,7 @@ const curatedSafarisGallery = [
     id: 2,
     title: 'Panoramic Safari Vistas',
     image: '/images/curated9.jpg',
-    caption: 'AI-inspired imagery capturing African beauty.',
+    caption: 'Striking photography that brings Africa’s landscapes to life.',
   },
   {
     id: 3,
@@ -234,7 +234,7 @@ export default function Home() {
             <p className="text-sm uppercase tracking-[.4em] text-green-600 font-semibold">Premium Collection</p>
             <h2 className="text-3xl md:text-4xl font-bold">Premium Curated Safaris</h2>
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-              Explore our specially curated safari experiences with premium visuals inspired by AI-driven design.
+              Explore our specially curated safari experiences with premium photography and local insight.
             </p>
           </div>
 
